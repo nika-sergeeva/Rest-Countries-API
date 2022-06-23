@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { MySearch } from './UI/MySearch'
 import { MySelect } from './UI/MySelect'
 
-
+ 
 const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -32,12 +32,9 @@ export const Controls = (props) => {
   const [region, setRegion] = useState('')
 
   useEffect(()=>{
-  props.handleFilters(searchQuery, region)
+  const theRegion = region? region.value : ''
+  props.handleFilters(searchQuery, theRegion)
   }, [searchQuery, region])
-
-  const sortRegion = ({value}) => {
-     setRegion(value)
-  }
 
   return (
     <Wrapper>
@@ -49,10 +46,10 @@ export const Controls = (props) => {
 
         <MySelect 
         options={options}  
-        value={region}
-        onChange={sortRegion}
-        isClearable={true}
+        isClearable 
         isSearchable={false}
+        value={region}
+        onChange={setRegion}
         />
     </Wrapper>
   )

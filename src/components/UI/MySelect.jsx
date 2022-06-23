@@ -1,7 +1,7 @@
 import Select from 'react-select'
 import styled from 'styled-components'
 
- 
+  
 export const MySelect = styled(Select).attrs({
     styles: {
         control: (provided) => ({
@@ -17,9 +17,9 @@ export const MySelect = styled(Select).attrs({
             backgroundColor: state.selected && 'transparent',
         }),
     },
-    placeholder: 'Filter by Region',
+    placeholder: "Filter by Region",
 })`
-.css-m7pwy7-control{
+ .css-m7pwy7-control{
     background-color: ${props => props.theme.colorsUiBase};
     box-shadow: none;
 }
@@ -31,29 +31,28 @@ export const MySelect = styled(Select).attrs({
     border-radius: ${props => props.theme.radii} !important;
 }
     
-    width: 200px;
-    border: none;
-    color: ${props => props.theme.color} ;
-    box-shadow: ${props => props.theme.shadow} ;
+width: 200px;
+order: none;
+color: ${props => props.theme.color} ;
+box-shadow: ${props => props.theme.shadow} ;
+background-color: ${props => props.theme.colorsUiBase};
+
+& > *{
+    box-shadow: ${props => props.theme.shadow};
     background-color: ${props => props.theme.colorsUiBase};
+    border-radius: ${props => props.theme.radii} !important;
+    font-family: 'Nunito Sans', sans serif ;
+}
 
-    & > *{
-        box-shadow: ${props => props.theme.shadow};
-        background-color: ${props => props.theme.colorsUiBase};
-        border-radius: ${props => props.theme.radii} !important;
-        font-family: 'Nunito Sans', sans serif ;
-    }
+& input{
+    padding-left: 0.25rem;
+}
 
-    & input{
-        padding-left: 0.25rem;
-    }
+& *{
+    color: ${props => props.theme.color} !important;
+}
 
-    & *{
-        color: ${props => props.theme.color} !important;
-        font-family: 'Nunito Sans', sans serif ;
-    }
-
-    & > div[id]{
-        background-color: ${props => props.theme.colorsUiBase};
-    }
+& > div[id]{
+    background-color: ${props => props.theme.colorsUiBase};
+}
 `
