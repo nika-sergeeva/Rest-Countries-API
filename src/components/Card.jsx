@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 
 const Wrapper = styled.article`
-  border-radius: ${props => props.theme.radii};
+  border-radius: 0.3rem;
   backgroung-color: ${props => props.theme.colorsUiBase};
   box-shadow: ${props => props.theme.shadow};
   cursor: pointer;
@@ -12,7 +12,7 @@ const Wrapper = styled.article`
 const CardImage = styled.img`
   display:flex;
   width: 100%;
-  height: 150px;
+  //height: 150px;
   object-fit: cover;
   object-position: center;
   box-shadow: ${props => props.theme.shadow};

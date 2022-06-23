@@ -9,24 +9,16 @@ import { useState, useEffect } from "react"
 const Wrapper = styled.section`
     width: 100%;
     display: grid;
-    grid-template-columns: minmax(400px, 600px) 1fr;
+    grid-template-columns: 100%;
     align-items: center;
     gap: 5rem;
 
-    @media (max-width: 1198px){
+    @media (max-width: 1184px){
         grid-template-columns: 100%;
-        gap: 2rem;
-        margin-top: 3rem;
-    }
-
-    @media (max-width: 849px){
-        grid-template-columns: minmax(100px, 400px) 1fr;
         align-items: center;
         gap: 5rem;
         width: 100%;
     }
-
- 
 `
 const InfoImage = styled.img`
     display: block;
@@ -103,9 +95,11 @@ const navigate = useNavigate()
 
 useEffect(()=> {
     if(props.borders.length)
- axios.get(filterByCode(props.borders)).then(
-    ({data}) => setNeighbors(data.map(i => i.name.common))
- )
+        axios.get(filterByCode(props.borders)).then(
+            ({data}) => setNeighbors(data.map(i => i.name.common))
+         )
+    
+
 }, [props.borders])
 
 
