@@ -9,7 +9,7 @@ import { useState, useEffect } from "react"
 const Wrapper = styled.section`
     width: 100%;
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: minmax(400px, 600px) 1fr;
     align-items: center;
     gap: 5rem;
 
