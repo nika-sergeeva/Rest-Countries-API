@@ -92,15 +92,16 @@ const [neighbors, setNeighbors] = useState([])
 
 const navigate = useNavigate()
 
+const border = props.borders
 
 useEffect(()=> {
-    if(props.borders.length)
+    if(border)
         axios.get(filterByCode(props.borders)).then(
             ({data}) => setNeighbors(data.map(i => i.name.common))
          )
     
 
-}, [props.borders])
+}, [border])
 
 
 function currencysKeys(){
@@ -132,7 +133,7 @@ const nativeNames = nativeN()
                         <b>Native Name:</b> {nativeNames[0].official} 
                     </ListItem>
                     <ListItem>
-                       <b>Population:</b> {props.population}
+                       <b>Population:</b> {props.population.toLocaleString()}
                     </ListItem>
                     <ListItem>
                        <b>Region:</b> {props.region}
@@ -145,11 +146,12 @@ const nativeNames = nativeN()
                     </ListItem>
                 </List>
                 <List>
-                    <ListItem>
-                         <b>Top Level Domain:</b> {props.tld.map((d) => {
-                          return   <span key={nanoid()}>{d} </span>
+                 {props.tld &&  <ListItem>
+                         <b>Top Level Domain:</b>  
+                       {props.tld.map((d) => {
+                          return   <span key={nanoid()}> {d}</span>
                          })}
-                     </ListItem>
+                     </ListItem>}
                      <ListItem> 
                          <b>Currency:</b> {' '}
                          {curName[0].map((c) => <span key={nanoid()}>{c.name}</span>) }
